@@ -30,7 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:sleepImage="@{sleep}"
-            app:srcCompat="@drawable/ic_sleep_5"
             tools:srcCompat="@drawable/ic_sleep_5" />
 
         <!--        for LinearLayoutManager-->
@@ -63,23 +62,22 @@
         <TextView
             android:id="@+id/quality_string"
             android:layout_width="0dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/quality_image"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/quality_image"
             app:layout_constraintTop_toBottomOf="@+id/quality_image"
             app:sleepQualityString="@{sleep}"
             tools:text="Excellent!!!" />
 
-        <TextView
-            android:id="@+id/sleep_length"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/quality_string"
-            app:layout_constraintStart_toStartOf="@+id/quality_string"
-            app:layout_constraintTop_toBottomOf="@+id/quality_string"
-            app:sleepDurationFormatted="@{sleep}"
-            tools:text="20 seconds on Wednesday" />
+<!--        <TextView-->
+<!--            android:id="@+id/sleep_length"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/quality_string"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/quality_string"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/quality_string"-->
+<!--            app:sleepDurationFormatted="@{sleep}"-->
+<!--            tools:text="20 seconds on Wednesday" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
