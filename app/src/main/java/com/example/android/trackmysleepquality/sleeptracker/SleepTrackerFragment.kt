@@ -101,7 +101,7 @@ class SleepTrackerFragment : Fragment() {
         })
 
 //        val manager = LinearLayoutManager(activity)
-        val manager = GridLayoutManager(activity, 3)
+        val manager = GridLayoutManager(activity, 4)
         binding.sleepList.layoutManager = manager
 
         val adapter = SleepNightAdapter(SleepNightAdapter.SleepNightListener {
@@ -124,7 +124,8 @@ class SleepTrackerFragment : Fragment() {
         sleepTrackerViewModel.nights.observe(viewLifecycleOwner, Observer {
             it?.let {
 //                adapter.data = it //before adding DiffUtil
-                adapter.submitList(it)
+//                adapter.submitList(it) // before adding a List Header
+                adapter.addHeaderAndSubmitList(it)
             }
         })
 
