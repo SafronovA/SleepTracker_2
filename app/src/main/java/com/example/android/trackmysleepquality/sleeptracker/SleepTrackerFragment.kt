@@ -33,6 +33,7 @@ import com.example.android.trackmysleepquality.database.SleepDatabase
 import com.example.android.trackmysleepquality.databinding.FragmentSleepTrackerBinding
 import com.google.android.material.snackbar.Snackbar
 
+private val COLUMNS_NUMBER = 4
 /**
  * A fragment with buttons to record start and end times for sleep, which are saved in
  * a database. Cumulative data is displayed in a simple scrollable TextView.
@@ -101,8 +102,15 @@ class SleepTrackerFragment : Fragment() {
         })
 
 //        val manager = LinearLayoutManager(activity)
-        val manager = GridLayoutManager(activity, 4)
+        val manager = GridLayoutManager(activity, COLUMNS_NUMBER)
         binding.sleepList.layoutManager = manager
+
+        manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() { // make header displayed on the whole screen width (if Grid includes N columns -> header should occupy N first positions)
+            override fun getSpanSize(position: Int) =  when (position) {
+                0 -> COLUMNS_NUMBER
+                else -> 1
+            }
+        }
 
         val adapter = SleepNightAdapter(SleepNightAdapter.SleepNightListener {
 //            nightId -> Toast.makeText(context, "${nightId}", Toast.LENGTH_LONG).show() // before adding onClick navigation
